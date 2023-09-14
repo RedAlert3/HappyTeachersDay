@@ -1,0 +1,64 @@
+﻿<Window x:Class="HappyTeachersHoliday.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HappyTeachersHoliday"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        Loaded="Window_Loaded"
+        Activated="Window_Activated"
+        Topmost="True"
+        Title="MainWindow" Height="1080" Width="1920">
+
+    <Grid>
+        <Grid x:Name="FadingContainer" Background="Transparent">
+            <Ellipse x:Name="FadingEllipse" Width="500" Height="500" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="White" Stroke="Black" StrokeThickness="3"/>
+        </Grid>
+        <Grid x:Name="GreeingContainer" Background="White" Opacity="1">
+            <StackPanel x:Name="GreetingContent" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="300,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="祝" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="88" FontFamily="FangSong"/>
+                    <!--<Border Width="60"/>-->
+                    <TextBlock x:Name="TargetTextBlock" Text="" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="88" FontFamily="FangSong"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Border Width="400"/>
+                    <TextBlock Text="教师节快乐" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="128" FontFamily="FangSong"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="FlowerTransfermationContainer" Margin="0,0,0,0">
+            <!-- "0,0,0,0" => "0,0,1030,0" -->
+            <Image x:Name="FlowerImage" Source="/Sources/Flower.png" HorizontalAlignment="Center" Width="320" Height="500" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="30"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
+        <Canvas>
+            <Button x:Name="QuitButton"
+                    Content="退出"
+                    Style="{StaticResource Win10FlatButtonStyle}"
+                    FontSize="24"
+                    Padding="10"
+                    Width="220"
+                    Height="80"
+                    FontFamily="Microsoft YaHei"
+                    Background="White"
+                    Foreground="#0078d7"
+                    BorderBrush="#0078d7"
+                    BorderThickness="3"
+                    Canvas.Left="850"
+                    Canvas.Top="920"
+                    Click="QuitButton_Click"/>
+        </Canvas>
+    </Grid>
+</Window>

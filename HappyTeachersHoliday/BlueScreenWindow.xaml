@@ -1,0 +1,46 @@
+﻿<Window x:Class="HappyTeachersHoliday.BlueScreenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HappyTeachersHoliday"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Background="#0078d7"
+        Topmost="True"
+        WindowStyle="None"
+        WindowState="Maximized"
+        Loaded="Window_Loaded"
+        Title="BlueScreenWindow" Height="1080" Width="1920">
+    <Grid>
+        <StackPanel Margin="160,120,160,0" x:Name="BlueScreenContentContainer">
+            <TextBlock Text=":)" FontFamily="Microsoft YaHei" Foreground="White" FontSize="200"/>
+            <Border Height="40"/>
+            <TextBlock Text="Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you." FontFamily="Microsoft YaHei" Width="1050" HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="White" FontSize="38"/>
+            <Border Height="40"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="CompletePercentTextBlock" Text="20" Foreground="White" FontSize="48"/>
+                <TextBlock Text="% Completed." Foreground="White" FontSize="48"/>
+            </StackPanel>
+            <Border Height="40"/>
+            <DockPanel>
+                <Image Source="/Sources/QR_Code.png" Width="160" Height="160" Margin="5" DockPanel.Dock="Left"/>
+                <DockPanel Margin="20,0,0,0" DockPanel.Dock="Left">
+                    <TextBlock DockPanel.Dock="Top" FontFamily="Microsoft YaHei" FontSize="18" Foreground="White" Text="For more information about this issue and possible fixes, visit https://www.windows.com/stopcode"/>
+                    <TextBlock DockPanel.Dock="Top" FontFamily="Microsoft YaHei" FontSize="18" Foreground="White" Text="If you call a support person, give them this info:"/>
+                    <TextBlock DockPanel.Dock="Bottom" FontFamily="Microsoft YaHei" FontSize="18" Foreground="White" Text="Stop code: HAPPY_TEACHERS_DAY"/>
+                    <Border/>
+                </DockPanel>
+                <Button Content="立即重启" Style="{StaticResource Win10FlatButtonStyle}" Click="Button_Click" HorizontalAlignment="Left" FontSize="24" Padding="10" Width="220" Height="80" FontFamily="Microsoft YaHei" Background="#0078d7" Foreground="White" BorderBrush="White" BorderThickness="3" DockPanel.Dock="Right" VerticalAlignment="Bottom"/>
+                <Border/>
+            </DockPanel>
+        </StackPanel>
+        <Grid x:Name="RestartingContentContainer">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <mah:ProgressRing Foreground="White" Width="80" Height="80"/>
+                <Border Height="20"/>
+                <TextBlock Text="正在重新启动" Foreground="White" FontSize="28" FontFamily="Microsoft YaHei"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
